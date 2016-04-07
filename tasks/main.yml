@@ -1,0 +1,26 @@
+---
+- name: Update APT cache if necessary
+  apt: update_cache=yes cache_valid_time=600
+
+- name: Install HTTPS APT transport for Docker repository
+  apt: name={{ item }}
+  with_items:
+    - ca-certificates
+    - apt-transport-https
+
+- name: Add Docker repository key
+  apt_key: url="https://apt.dockerproject.org/gpg" id="2C52609D"
+
+- name: Add Docker APT repository
+  apt_repository: repo="deb https://apt.dockerproject.org/repo debian-{{ansible_distribution_release}} main" update_cache=yes
+
+- file: name=/etc/systemd/system/docker.service.d state=directory
+- name: Prevent docker to create iptables rules
+  copy: src=noiptables.conf dest=/etc/systemd/system/docker.service.d/noiptables.conf
+  notify: systemctl daemon-reload
+
+- name: Install Docker
+  apt: name=docker-engine
+
+- name: Ensure Docker is up
+  service: name=docker state=started enabled=yes
