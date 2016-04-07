@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bjorand/ansible.docker.debian.svg)](https://travis-ci.org/bjorand/ansible.docker.debian)
 
-Ansible role to bootstrap a raw Debian Jessie into a Docker host
+Ansible role to bootstrap a raw Debian Jessie into a Docker host.
 
 ## Requirements
 
