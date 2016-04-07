@@ -9,4 +9,4 @@ install:
 script:
   - ansible --version
   - export ANSIBLE_ROLES_PATH="../"
-  - ansible-playbook -i hosts --syntax-check tests/vagrant.yml
+  - ansible-playbook -i tests/hosts --syntax-check tests/vagrant.yml
