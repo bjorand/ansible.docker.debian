@@ -1,3 +1,5 @@
 ---
 - name: systemctl daemon-reload
   command: systemctl daemon-reload
+- name: update-grub
+  command: update-grub
