@@ -33,6 +33,6 @@
   get_url:
     url="https://github.com/docker/compose/releases/download/1.8.0/docker-compose-{{ansible_system}}-{{ansible_architecture}}"
     dest=/usr/local/bin/docker-compose
-    checksum=1ad8ca6f2251a78373b389547b60357747e7abf5
+    sha256sum=1ad8ca6f2251a78373b389547b60357747e7abf5
 - file: path=/usr/local/bin/docker-compose mode=0755
 
