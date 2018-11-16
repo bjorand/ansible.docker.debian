@@ -7,10 +7,8 @@
   notify: update-grub
 
 - name: Install HTTPS APT transport for Docker repository
-  apt: name={{ item }}
-  with_items:
-    - ca-certificates
-    - apt-transport-https
+  apt:
+    name: ["ca-certificates", "apt-transport-https"]
 
 - name: Add Docker repository key
   apt_key: url="https://apt.dockerproject.org/gpg" id="2C52609D"
@@ -35,4 +33,3 @@
     dest=/usr/local/bin/docker-compose
     sha256sum=ebc6ab9ed9c971af7efec074cff7752593559496d0d5f7afb6bfd0e0310961ff
 - file: path=/usr/local/bin/docker-compose mode=0755
-

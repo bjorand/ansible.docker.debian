@@ -6,7 +6,7 @@ Ansible role to bootstrap a raw Debian Jessie into a Docker host.
 
 ## Requirements
 
-- Debian Jessie
+- Debian Stretch
 
 ## Dependencies
 
@@ -22,5 +22,3 @@ Requires `ansible-playbook` to be in your local path.
 ## License
 
 MIT
-
-
